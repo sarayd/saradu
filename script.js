@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Toggle existing description
                 const isActive = descriptionElement.classList.contains('active');
                 descriptionElement.classList.toggle('active');
+                this.classList.toggle('active');
                 
                 // If closing, remove after animation completes
                 if (isActive) {
@@ -61,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
                         descriptionElement.classList.add('active');
+                        this.classList.add('active');
                     });
                 });
             }
