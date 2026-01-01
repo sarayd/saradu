@@ -1,0 +1,18 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect /portfolio to /investing
+RewriteRule ^portfolio/?$ /investing [R=301,L]
+
+# Remove .html extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect .html to non-.html URLs
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R=301]
+
+# Handle root URL
+DirectoryIndex index.html
+

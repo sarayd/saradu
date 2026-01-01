@@ -1,0 +1,80 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/investing",
+      "destination": "/investing.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/ando",
+      "destination": "/ando.html"
+    },
+    {
+      "source": "/alloy",
+      "destination": "/alloy.html"
+    },
+    {
+      "source": "/colors",
+      "destination": "/colors.html"
+    },
+    {
+      "source": "/color-002fa7",
+      "destination": "/colors.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/portfolio",
+      "destination": "/investing",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio.html",
+      "destination": "/investing",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/investing.html",
+      "destination": "/investing",
+      "permanent": true
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/ando.html",
+      "destination": "/ando",
+      "permanent": true
+    },
+    {
+      "source": "/alloy.html",
+      "destination": "/alloy",
+      "permanent": true
+    },
+    {
+      "source": "/colors.html",
+      "destination": "/colors",
+      "permanent": true
+    },
+    {
+      "source": "/color-002fa7.html",
+      "destination": "/colors",
+      "permanent": true
+    }
+  ]
+}
+

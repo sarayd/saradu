@@ -1,0 +1,17 @@
+# Netlify redirects file
+# Remove .html extensions
+/index.html / 301
+/investing.html /investing 301
+/blog.html /blog 301
+/ando.html /ando 301
+/alloy.html /alloy 301
+/colors.html /colors 301
+/color-002fa7.html /colors 301
+
+# Portfolio redirect
+/portfolio /investing 301
+/portfolio.html /investing 301
+
+# Catch all - serve .html files without extension
+/* /index.html 200
+
