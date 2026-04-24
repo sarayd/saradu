@@ -25,6 +25,10 @@
       "destination": "/colors.html"
     },
     {
+      "source": "/things",
+      "destination": "/things.html"
+    },
+    {
       "source": "/color-002fa7",
       "destination": "/colors.html"
     }
@@ -73,6 +77,11 @@
     {
       "source": "/color-002fa7.html",
       "destination": "/colors",
+      "permanent": true
+    },
+    {
+      "source": "/things.html",
+      "destination": "/things",
       "permanent": true
     }
   ]

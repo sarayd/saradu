@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Sara Du</title>
+    <title>Things - Sara Du</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="things-page">
     <div class="container">
         <div class="content">
             <p class="name-text">
@@ -17,23 +17,26 @@
                     <a href="/" class="header-link">Sara Du</a>
                     <a href="/investing" class="header-link">Investing</a>
                     <a href="/blog" class="header-link">Blog</a>
-                    <a href="/things" class="header-link">Things</a>
+                    <a href="/things" class="header-link active">Things</a>
                 </span>
             </p>
-            
-            <p>
-                Coming soon.
-            </p>
-            
+
+            <div id="things-grid" class="things-grid"></div>
+            <div id="things-detail" class="things-detail" style="display:none"></div>
+
+            <div id="things-lightbox" class="things-lightbox">
+                <img id="lightbox-img" src="" alt="">
+            </div>
+
             <div class="contact-links">
-                <a href="https://x.com/saradu" class="contact-link">X</a>
+                <a href="https://x.com/saradu" class="contact-link" target="_blank" rel="noopener noreferrer">X</a>
                 <span class="separator">/</span>
-                <a href="https://linkedin.com/in/saradu" class="contact-link">LINKEDIN</a>
+                <a href="https://linkedin.com/in/saradu" class="contact-link" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
                 <span class="separator">/</span>
-                <a href="https://saradu.substack.com/" class="contact-link">SUBSTACK</a>
+                <a href="https://saradu.substack.com/" class="contact-link" target="_blank" rel="noopener noreferrer">SUBSTACK</a>
             </div>
         </div>
     </div>
+    <script src="things.js"></script>
 </body>
 </html>
-
