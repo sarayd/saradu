@@ -360,6 +360,10 @@ body {
         margin-top: 0.15625rem;
     }
 
+    .asterisk-board {
+        margin-top: 0;
+    }
+
     .contact-links {
         margin-top: 0.0875em;
     }
