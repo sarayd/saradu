@@ -129,6 +129,20 @@ const CHANNELS = [
             { type: "text", content: "reformer", added: "2026-02-19" },
         ]
     },
+    {
+        slug: "linguistics",
+        title: "thoughts on language",
+        updated: "2026-04-24",
+        blocks: [
+            { type: "text", content: "\“All language is a set of symbols whose use among its speakers assumes a shared past. How, then, can I translate into words the limitless Aleph, which my floundering mind can scarcely encompass?\” — Jorge Luis Borges, El Aleph", added: "2026-04-22" },
+            { type: "text", content: "We often think of language as a means to an end, but rarely take the time to consider whether language itself is influencing our thoughts.  Words and ideas matter. They shape how we see the world, the stories we tell, and how we relate to one another.  There are so many worlds that we do not have language for.  Interrogate the meaning of words like apartheid, genocide, or ethnic cleansing before you use them.  New conditions demand a new way of thinking. New thinking demands new forms of expression. Expand the lexicon. Force your brain to think in new ways.", added: "2026-04-01" },
+            { type: "image", src: "media/things/words-1.png", added: "2026-04-01" },
+            { type: "text", content: "Think of language as a mirror that reflects the structure of reality. The mirror can show the image (the structure), but it cannot describe itself as a mirror without reflecting the image of itself again.", added: "2026-04-01" },
+            { type: "text", content: "In order to understand Mr Wittgenstein's book, it is necessary to realize what is the problem with which he is concerned. In the part of his theory which deals with Symbolism he is concerned with the conditions which would have to be fulfilled by a logically perfect language", added: "2026-04-01" },
+            { type: "text", content: "There’s a corollary for each kind of work. For instance, writing is thinking made legible. Outsourcing it all outsources thinking itself. You get results without the cognitive muscle-building that creates them. The neural pathways you would have formed now belong to the large language models that helped you.", added: "2026-04-01" },
+            { type: "text", content: "A more technical way of saying this is that our (non-verbal) thoughts seem to behave as vectors; when a cluster of neurons fire together, that pattern is like an address pointing toward a point in a high dimensional space. But when we convert our thoughts to words, we convert that vector into a scalar. I’m not sure if this is true, but here is a paper laying out the argument for why it might be.", added: "2026-04-01" },
+        ]
+    },
     // {
     //     slug: "uncategorizable",
     //     title: "uncategorizable",
