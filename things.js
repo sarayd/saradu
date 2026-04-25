@@ -12,13 +12,19 @@ const CHANNELS = [
         updated: "2026-04-24",
         noModal: true,
         blocks: [
+            { type: "image", src: "media/things/hiroshi-surface-of-revolution-2006.png", alt: "Hiroshi Sugimoto", subtitle: "Surface of Revolution with Constant Negative Curvature, 2006 by Hiroshi Sugimoto", added: "2026-04-25" },
+            { type: "image", src: "media/things/hiroshi-hypersphere-2012.png", alt: "Hiroshi Sugimoto", subtitle: "Constant Curvature Surface Revolution, 2012 by Hiroshi Sugimoto", added: "2026-04-25" },
+            { type: "image", src: "media/things/hiroshi-silivli-1991.png", alt: "Hiroshi Sugimoto", subtitle: "Marmara Sea, Silivli, 1991 by Hiroshi Sugimoto", added: "2026-04-25" },
+            { type: "image", src: "media/things/hiroshi-norwegian-sea-1990.png", alt: "Hiroshi Sugimoto", subtitle: "Norwegian Sea, 1990 by Hiroshi Sugimoto", added: "2026-04-25" },
+            { type: "image", src: "media/things/hiroshi-ciotat.png", alt: "Hiroshi Sugimoto", subtitle: "Mediterranean Sea, La Ciotat, 1989 by Hiroshi Sugimoto", added: "2026-04-25" },
+            { type: "image", src: "media/things/hiroshi-oki-1987.png", alt: "Hiroshi Sugimoto", subtitle: "Sea of Japan, Oki, 1987 by Hiroshi Sugimoto", added: "2026-04-25" },
+            { type: "image", src: "media/things/masanobu-hiraoka.gif", alt: "Masanobu Hiraoka", subtitle: "Masanobu Hiraoka", added: "2026-04-22" },
             { type: "image", src: "media/things/madonna-child-recalled.png", alt: "Madonna & Child, Recalled 2025 by Alexander James", subtitle: "'Madonna & Child, Recalled 2025' by Alexander James", added: "2026-04-20" },
             { type: "image", src: "media/things/the-tree-park-jiyoung.png", alt: "The tree, 2023 by Park Jiyoung", subtitle: "'The tree, 2023' by Park Jiyoung", added: "2026-03-12" },
             { type: "image", src: "media/things/reminisce-park-jiyoung.png", alt: "Reminisce, 2023 by Park Jiyoung", subtitle: "'Reminisce, 2023' by Park Jiyoung", added: "2026-02-05" },
             { type: "image", src: "media/things/the-observer-alexander-james.png", alt: "The Observer, 2024 by Alexander James", subtitle: "'The Observer, 2024' by Alexander James", added: "2025-12-18" },
             { type: "image", src: "media/things/he-wired-the-shadows-esther-sibiude.png", alt: "He wired the shadows and played them up and down like scales, 2023 by Esther Sibiude", subtitle: "'He wired the shadows and played them up and down like scales, 2023' by Esther Sibiude", added: "2025-10-30" },
             { type: "image", src: "media/things/nighthawks-edward-hopper.jpg", alt: "Nighthawks, 1942 by Edward Hopper", subtitle: "'Nighthawks, 1942' by Edward Hopper", added: "2025-08-14" },
-            { type: "image", src: "media/things/masanobu-hiraoka.gif", alt: "Masanobu Hiraoka", subtitle: "Masanobu Hiraoka", added: "2025-06-27" },
         ]
     },
     {
