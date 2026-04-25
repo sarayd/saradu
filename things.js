@@ -321,3 +321,44 @@ function route() {
 
 window.addEventListener("hashchange", route);
 window.addEventListener("DOMContentLoaded", route);
+
+// Loops email subscribe
+const LOOPS_FORM_ID = "cmoepw5v203aa0hzwcnyt1kdi";
+
+const $subscribeForm = document.getElementById("things-subscribe-form");
+const $emailInput = document.getElementById("things-email");
+const $subscribeMsg = document.getElementById("things-subscribe-msg");
+
+$subscribeForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = $emailInput.value.trim();
+    if (!email) return;
+
+    const $btn = $subscribeForm.querySelector(".things-subscribe-btn");
+    $btn.disabled = true;
+    $btn.textContent = "...";
+    $subscribeMsg.textContent = "";
+    $subscribeMsg.className = "things-subscribe-msg";
+
+    try {
+        const res = await fetch(`https://app.loops.so/api/newsletter-form/${LOOPS_FORM_ID}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ email }),
+        });
+        const data = await res.json();
+        if (res.ok && data.success !== false) {
+            $subscribeMsg.textContent = "You're in — thanks for subscribing.";
+            $subscribeMsg.className = "things-subscribe-msg success";
+            $emailInput.value = "";
+        } else {
+            $subscribeMsg.textContent = data.message || "Something went wrong. Try again?";
+            $subscribeMsg.className = "things-subscribe-msg error";
+        }
+    } catch {
+        $subscribeMsg.textContent = "Something went wrong. Try again?";
+        $subscribeMsg.className = "things-subscribe-msg error";
+    }
+    $btn.disabled = false;
+    $btn.textContent = "Subscribe";
+});
