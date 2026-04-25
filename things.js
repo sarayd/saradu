@@ -7,24 +7,39 @@
 
 const CHANNELS = [
     {
+        slug: "art",
+        title: "art",
+        updated: "2026-04-24",
+        noModal: true,
+        blocks: [
+            { type: "image", src: "media/things/madonna-child-recalled.png", alt: "Madonna & Child, Recalled 2025 by Alexander James", subtitle: "'Madonna & Child, Recalled 2025' by Alexander James", added: "2026-04-20" },
+            { type: "image", src: "media/things/the-tree-park-jiyoung.png", alt: "The tree, 2023 by Park Jiyoung", subtitle: "'The tree, 2023' by Park Jiyoung", added: "2026-03-12" },
+            { type: "image", src: "media/things/reminisce-park-jiyoung.png", alt: "Reminisce, 2023 by Park Jiyoung", subtitle: "'Reminisce, 2023' by Park Jiyoung", added: "2026-02-05" },
+            { type: "image", src: "media/things/the-observer-alexander-james.png", alt: "The Observer, 2024 by Alexander James", subtitle: "'The Observer, 2024' by Alexander James", added: "2025-12-18" },
+            { type: "image", src: "media/things/he-wired-the-shadows-esther-sibiude.png", alt: "He wired the shadows and played them up and down like scales, 2023 by Esther Sibiude", subtitle: "'He wired the shadows and played them up and down like scales, 2023' by Esther Sibiude", added: "2025-10-30" },
+            { type: "image", src: "media/things/nighthawks-edward-hopper.jpg", alt: "Nighthawks, 1942 by Edward Hopper", subtitle: "'Nighthawks, 1942' by Edward Hopper", added: "2025-08-14" },
+            { type: "image", src: "media/things/masanobu-hiraoka.gif", alt: "Masanobu Hiraoka", subtitle: "Masanobu Hiraoka", added: "2025-06-27" },
+        ]
+    },
+    {
         slug: "words",
         title: "words",
         updated: "2026-04-24",
         blocks: [
-            { type: "text", content: "koan", description: "A koan is a paradoxical anecdote, riddle, or dialogue used in Zen Buddhism to force students to abandon ultimate dependence on logic and reasoning, forcing them toward direct insight or sudden enlightenment" },
-            { type: "text", content: "autotelic", description: "Autotelic describes an activity or personality driven by internal rewards rather than external goals, derived from Greek auto (self) and telos (goal). An autotelic person does things for their own sake—enjoying the process rather than just the outcome. This state is key to achieving \"flow,\" fostering autonomy, curiosity, and intrinsic motivation." },
-            { type: "text", content: "atavism", description: "Atavism is the reappearance of lost ancestral traits in an individual organism, acting as an evolutionary 'throwback'" },
-            { type: "text", content: "insouciant", description: "A casual lack of concern; carefree indifference. From French insouciant — not troubling oneself." },
-            { type: "text", content: "solastalgia", description: "The distress caused by environmental change in a place you still live in — a form of homesickness you feel while still at home." },
-            { type: "text", content: "unalloyed", description: "Complete and unreserved. Unalloyed joy, unalloyed grief — emotions without dilution or qualification." },
-            { type: "text", content: "proustian", description: "A sensory experience — a taste, a smell — that involuntarily triggers a vivid, emotionally rich memory. After Marcel Proust's madeleine dipped in tea." },
-            { type: "text", content: "apophenia", description: "The tendency to perceive meaningful connections between unrelated things — seeing patterns where none exist." },
-            { type: "text", content: "yūgen (幽玄)", description: "A mysterious sense of the beauty of the universe — an awareness of things that triggers an emotional response too deep for words." },
-            { type: "text", content: "nominal determinism", description: "The concept that people are subconsciously drawn to careers or hobbies that match their names, like a Gardner becoming a gardener, explained by psychological ideas such as implicit egotism (preferring things similar to oneself)." },
-            { type: "text", content: "Schnapsidee", description: "Ideas so ludicrous that they must have been conceived while drunk." },
-            { type: "text", content: "satori (悟り)", description: "Refers to a range of concepts, most notably the Buddhist term for spiritual enlightenment or awakening." },
-            { type: "text", content: "tsundoku (積ん読)", description: "Acquiring books and letting them pile up, often without reading them immediately." },
-            { type: "text", content: "atopy (ατοπία)", description: "The ineffability of things or emotions that are seldom experienced, that are outstanding and that are original in the strict sense. A certain quality of experience that can be observed within oneself or within others, differing from the ideal quality that is conceptualized, not experienced." },
+            { type: "text", content: "koan", description: "A koan is a paradoxical anecdote, riddle, or dialogue used in Zen Buddhism to force students to abandon ultimate dependence on logic and reasoning, forcing them toward direct insight or sudden enlightenment", added: "2026-04-22" },
+            { type: "text", content: "autotelic", description: "Autotelic describes an activity or personality driven by internal rewards rather than external goals, derived from Greek auto (self) and telos (goal). An autotelic person does things for their own sake—enjoying the process rather than just the outcome. This state is key to achieving \"flow,\" fostering autonomy, curiosity, and intrinsic motivation.", added: "2026-03-08" },
+            { type: "text", content: "atavism", description: "Atavism is the reappearance of lost ancestral traits in an individual organism, acting as an evolutionary 'throwback'", added: "2026-01-14" },
+            { type: "text", content: "insouciant", description: "A casual lack of concern; carefree indifference. From French insouciant — not troubling oneself.", added: "2025-12-03" },
+            { type: "text", content: "solastalgia", description: "The distress caused by environmental change in a place you still live in — a form of homesickness you feel while still at home.", added: "2026-04-11" },
+            { type: "text", content: "unalloyed", description: "Complete and unreserved. Unalloyed joy, unalloyed grief — emotions without dilution or qualification.", added: "2025-10-19" },
+            { type: "text", content: "proustian", description: "A sensory experience — a taste, a smell — that involuntarily triggers a vivid, emotionally rich memory. After Marcel Proust's madeleine dipped in tea.", added: "2026-02-21" },
+            { type: "text", content: "apophenia", description: "The tendency to perceive meaningful connections between unrelated things — seeing patterns where none exist.", added: "2025-11-07" },
+            { type: "text", content: "yūgen (幽玄)", description: "A mysterious sense of the beauty of the universe — an awareness of things that triggers an emotional response too deep for words.", added: "2025-09-15" },
+            { type: "text", content: "nominal determinism", description: "The concept that people are subconsciously drawn to careers or hobbies that match their names, like a Gardner becoming a gardener, explained by psychological ideas such as implicit egotism (preferring things similar to oneself).", added: "2026-03-29" },
+            { type: "text", content: "Schnapsidee", description: "Ideas so ludicrous that they must have been conceived while drunk.", added: "2025-10-02" },
+            { type: "text", content: "satori (悟り)", description: "Refers to a range of concepts, most notably the Buddhist term for spiritual enlightenment or awakening.", added: "2026-01-26" },
+            { type: "text", content: "tsundoku (積ん読)", description: "Acquiring books and letting them pile up, often without reading them immediately.", added: "2025-11-22" },
+            { type: "text", content: "atopy (ατοπία)", description: "The ineffability of things or emotions that are seldom experienced, that are outstanding and that are original in the strict sense. A certain quality of experience that can be observed within oneself or within others, differing from the ideal quality that is conceptualized, not experienced.", added: "2026-02-05" },
         ]
     },
     // {
@@ -63,33 +78,25 @@ const CHANNELS = [
         updated: "2026-04-24",
         // pinned: "I mostly keep track of favorite dishes over favorite restaurants.",
         blocks: [
-            { type: "image", src: "media/things/dakos.jpg", alt: "Dakos", noModal: true },
-            { type: "image", src: "media/things/pao-de-queijo.jpg", alt: "Pao de queijo", noModal: true },
-            { type: "text", content: "tiramisu", link: "tiramisu" },
-            { type: "text", content: "octopus pizzaiolo and spicy rig from Carbone", noModal: true },
-            { type: "text", content: "duck carnitas from Damian (LA)", noModal: true },
-            { type: "text", content: "cold niku udon at Yume (Cambridge)", noModal: true },
-            { type: "text", content: "souffle pancakes from Rule of Thirds (Brooklyn)", noModal: true },
-            { type: "text", content: "affogato from Caffe Panna (NYC)", noModal: true },
-            { type: "text", content: "octopus bone marrow fusilli from Marea (NYC)", noModal: true },
-            { type: "text", content: "amaebi at Sushi Ota (SD)", noModal: true },
-            { type: "text", content: "soft serve at Angler (SF)", noModal: true },
-            { type: "text", content: "chocolate budino at Seven Hills (SF)", noModal: true },
-            { type: "text", content: "mochi with crab at Spectrum (Amsterdam)", noModal: true },
-        ]
-    },
-    {
-        slug: "art",
-        title: "art",
-        updated: "2026-04-24",
-        noModal: true,
-        blocks: [
-            { type: "image", src: "media/things/madonna-child-recalled.png", alt: "Madonna & Child, Recalled 2025 by Alexander James", subtitle: "'Madonna & Child, Recalled 2025' by Alexander James" },
-            { type: "image", src: "media/things/the-tree-park-jiyoung.png", alt: "The tree, 2023 by Park Jiyoung", subtitle: "'The tree, 2023' by Park Jiyoung" },
-            { type: "image", src: "media/things/reminisce-park-jiyoung.png", alt: "Reminisce, 2023 by Park Jiyoung", subtitle: "'Reminisce, 2023' by Park Jiyoung" },
-            { type: "image", src: "media/things/the-observer-alexander-james.png", alt: "The Observer, 2024 by Alexander James", subtitle: "'The Observer, 2024' by Alexander James" },
-            { type: "image", src: "media/things/he-wired-the-shadows-esther-sibiude.png", alt: "He wired the shadows and played them up and down like scales, 2023 by Esther Sibiude", subtitle: "'He wired the shadows and played them up and down like scales, 2023' by Esther Sibiude" },
-            { type: "image", src: "media/things/nighthawks-edward-hopper.jpg", alt: "Nighthawks, 1942 by Edward Hopper", subtitle: "'Nighthawks, 1942' by Edward Hopper" },
+            { type: "text", content: "dakos in greece", noModal: true, added: "2025-06-15" },
+            { type: "text", content: "pao de quiejo, anywhere", noModal: true, added: "2020-12-28" },
+            { type: "text", content: "tiramisu, at many places", link: "tiramisu", added: "2026-04-25" },
+            { type: "text", content: "octopus pizzaiolo and spicy rig from Carbone", noModal: true, added: "2023-01-11" },
+            { type: "text", content: "duck carnitas from Damian (LA)", noModal: true, added: "2024-04-02" },
+            { type: "text", content: "cold niku udon at Yume (cambridge)", noModal: true, added: "2019-10-23" },
+            { type: "image", src: "media/things/ruleofthirds.avif", alt: "souffle pancakes from Rule of Thirds (brooklyn)",  subtitle: "souffle pancakes from Rule of Thirds (brooklyn)", noModal: true, added: "2021-02-14" },
+            { type: "image", src: "media/things/lilia.webp", alt: "agnolotti filled w sheep's milk cheese & covered in honey from lilia (brooklyn)", subtitle: "agnolotti filled w sheep's milk cheese & covered in honey from lilia (brooklyn)", noModal: true, added: "2021-02-14" },
+            { type: "text", content: "affogato from Caffe Panna (NYC)", noModal: true, added: "2025-11-30" },
+            { type: "text", content: "crab noodles at 人和馆 (shanghai)", noModal: true, added: "2024-12-30" },
+            { type: "image", src: "media/things/nakamura.png", alt: "matcha parfait at 茶寮都路里 (kyoto)", subtitle: "matcha parfait at 茶寮都路里 (kyoto)", noModal: true, added: "2025-12-30" },
+            { type: "text", content: "warabimochi from 一幸庵 (tokyo)", noModal: true, added: "2022-12-30" },
+            { type: "text", content: "soba from 雷庵 (tokyo)", noModal: true, added: "2022-12-30" },
+            { type: "text", content: "octopus bone marrow fusilli from Marea (NYC)", noModal: true, added: "2020-03-03" },
+            { type: "text", content: "amaebi at Sushi Ota (SD)", noModal: true, added: "2025-10-05" },
+            { type: "image", src: "media/things/soft-serve-angler.png", alt: "Soft serve at Angler (SF)", subtitle: "soft serve at Angler (SF)", noModal: true, added: "2026-01-19" },
+            { type: "text", content: "chocolate budino at Seven Hills (SF)", noModal: true, added: "2026-03-12" },
+            { type: "text", content: "mochi with crab at Spectrum (Amsterdam)", noModal: true, added: "2025-05-18" },
+            { type: "image", src: "media/things/pujol.jpg", alt: "mole at pujol (CDMX)", subtitle: "mole at pujol (CDMX)", noModal: true, added: "2024-08-17" },
         ]
     },
     // {
@@ -107,13 +114,13 @@ const CHANNELS = [
         title: "products",
         updated: "2025-04-24",
         blocks: [
-            { type: "text", content: "dyson" },
-            { type: "text", content: "nosemint" },
-            { type: "text", content: "neurogum" },
-            { type: "text", content: "fodzyme" },
-            { type: "text", content: "zbiotics" },
-            { type: "text", content: "zojirushi" },
-            { type: "text", content: "reformer" },
+            { type: "text", content: "dyson", added: "2025-09-03" },
+            { type: "text", content: "nosemint", added: "2026-03-21" },
+            { type: "text", content: "neurogum", added: "2026-01-07" },
+            { type: "text", content: "fodzyme", added: "2025-11-15" },
+            { type: "text", content: "zbiotics", added: "2026-04-10" },
+            { type: "text", content: "zojirushi", added: "2025-10-28" },
+            { type: "text", content: "reformer", added: "2026-02-19" },
         ]
     },
     // {
@@ -217,32 +224,35 @@ function renderDetail(slug) {
     const backHref = isSubchannel ? `#${channel.parent}` : "#";
     const backLabel = isSubchannel ? `\u2190 ${channel.parent}` : "\u2190 All things";
 
+    // Sort blocks by date (most recent first), preserving original indices for modal lookups
+    const sorted = channel.blocks.map((block, i) => ({ block, i }))
+        .sort((a, b) => new Date(b.block.added || channel.updated) - new Date(a.block.added || channel.updated));
+
     const blocksHTML = channel.blocks.length === 0
         ? '<p class="things-empty">No blocks yet.</p>'
-        : channel.blocks.map((block, i) => {
+        : sorted.map(({ block, i }) => {
             const noClick = channel.noModal || block.noModal;
             const noClickClass = noClick && !block.link ? ' things-block-static' : '';
+            const timeHTML = `<div class="things-block-time">${timeAgo(block.added || channel.updated)}</div>`;
             if (block.type === "image") {
                 const subtitleHTML = block.subtitle ? `<div class="things-block-subtitle">${block.subtitle}</div>` : '';
-                const wrapperClass = block.subtitle ? ' things-block-wrap' : '';
-                return block.subtitle
-                    ? `<div class="${wrapperClass.trim()}">
-                        <div class="things-block things-block-image${noClickClass}" data-slug="${slug}" data-index="${i}">
-                            <img src="${block.src}" alt="${block.alt || ''}" loading="lazy">
-                        </div>
-                        ${subtitleHTML}
-                    </div>`
-                    : `<div class="things-block things-block-image${noClickClass}" data-slug="${slug}" data-index="${i}">
+                return `<div class="things-block-wrap">
+                    <div class="things-block things-block-image${noClickClass}" data-slug="${slug}" data-index="${i}">
                         <img src="${block.src}" alt="${block.alt || ''}" loading="lazy">
-                    </div>`;
+                    </div>
+                    ${subtitleHTML}
+                    ${timeHTML}
+                </div>`;
             }
             const linkClass = block.link ? ' things-block-link' : '';
-            return `
+            return `<div class="things-block-wrap">
                 <div class="things-block${linkClass}${noClickClass}" data-slug="${slug}" data-index="${i}"${block.link ? ` data-link="${block.link}"` : ''}>
                     <p>${block.content}</p>
                     ${block.description ? `<p class="things-block-desc">${block.description}</p>` : ''}
                     ${block.link ? '<span class="things-block-arrow">\u2192</span>' : ''}
-                </div>`;
+                </div>
+                ${timeHTML}
+            </div>`;
         }).join("");
 
     const pinnedHTML = channel.pinned
