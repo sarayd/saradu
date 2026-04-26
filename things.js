@@ -76,6 +76,8 @@ const CHANNELS = [
         updated: "2025-04-24",
         blocks: [
             { type: "text", content: "happiness is the delta between expectations and reality" },
+            { type: "text", content: "incentives are human physics" },
+            { type: "text", content: "observe peoples’ revealed preferences, talk is cheap" },
         ]
     },
     {
@@ -218,15 +220,21 @@ function renderGrid() {
     $detail.style.display = "none";
     $grid.style.display = "";
 
-    $grid.innerHTML = CHANNELS.filter(ch => !ch.hidden).map(ch => `
+    $grid.innerHTML = CHANNELS.filter(ch => !ch.hidden).map(ch => {
+        const lastAdded = ch.blocks.reduce((latest, b) => {
+            const d = b.added || ch.updated;
+            return d > latest ? d : latest;
+        }, ch.updated);
+        return `
         <a class="things-card" href="#${ch.slug}">
             <span class="things-card-title">${ch.title}</span>
             <div class="things-card-meta">
                 <span>${ch.blocks.length} block${ch.blocks.length !== 1 ? "s" : ""}</span>
-                <span>${timeAgo(ch.updated)}</span>
+                <span>${timeAgo(lastAdded)}</span>
             </div>
         </a>
-    `).join("");
+    `;
+    }).join("");
 }
 
 function findChannel(slug) {
