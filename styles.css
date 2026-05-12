@@ -629,6 +629,77 @@ body {
     padding: 2rem 0;
 }
 
+/* Art detail view */
+
+.things-art-detail {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+.things-art-image {
+    flex: 0 0 58%;
+    max-width: 58%;
+}
+
+.things-art-image img {
+    width: 100%;
+    display: block;
+}
+
+.things-art-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 0.25rem;
+    min-width: 0;
+}
+
+.things-art-subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #999;
+    line-height: 1.5;
+    margin: 0 !important;
+}
+
+.things-art-commentary {
+    font-family: 'ABCMarist', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #333;
+    margin-top: 1.25rem;
+}
+
+.things-art-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: #bbb;
+    margin-top: auto !important;
+    padding-top: 1.5rem;
+}
+
+.things-art-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e8e8e8;
+}
+
+.things-art-nav-link {
+    font-family: 'ABCMarist', sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.things-art-nav-link:hover {
+    color: #000;
+}
+
 /* Email subscribe */
 
 .things-subscribe {
@@ -780,6 +851,16 @@ body {
     .things-blocks {
         grid-template-columns: 1fr 1fr;
         gap: 14px;
+    }
+
+    .things-art-detail {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .things-art-image {
+        flex: none;
+        max-width: 100%;
     }
 }
 

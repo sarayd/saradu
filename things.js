@@ -7,10 +7,38 @@
 
 const CHANNELS = [
     {
+        slug: "dishes",
+        title: "dishes",
+        updated: "2026-04-24",
+        // pinned: "I mostly keep track of favorite dishes over favorite restaurants.",
+        blocks: [
+            { type: "text", content: "sweet potato basque cheesecake w caviar at sorrel (sf)", noModal: true, added: "2026-05-10" },
+            { type: "text", content: "dakos in greece", noModal: true, added: "2025-06-15" },
+            { type: "text", content: "pao de quiejo, anywhere", noModal: true, added: "2020-12-28" },
+            { type: "text", content: "[click me] tiramisu, from many places", link: "tiramisu", added: "2026-04-25" },
+            { type: "text", content: "octopus pizzaiolo and spicy rig at Carbone", noModal: true, added: "2023-01-11" },
+            { type: "text", content: "duck carnitas from Damian (LA)", noModal: true, added: "2024-04-02" },
+            { type: "text", content: "cold niku udon at Yume (cambridge)", noModal: true, added: "2019-10-23" },
+            { type: "image", src: "media/things/ruleofthirds.avif", alt: "souffle pancakes from Rule of Thirds (brooklyn)",  subtitle: "souffle pancakes from Rule of Thirds (brooklyn)", noModal: true, added: "2021-02-14" },
+            { type: "image", src: "media/things/lilia.webp", alt: "agnolotti filled w sheep's milk cheese & covered in honey from lilia (brooklyn)", subtitle: "agnolotti filled w sheep's milk cheese & covered in honey from lilia (brooklyn)", noModal: true, added: "2021-02-14" },
+            { type: "text", content: "affogato from Caffe Panna (nyc)", noModal: true, added: "2025-11-30" },
+            { type: "text", content: "crab noodles at 人和馆 (shanghai)", noModal: true, added: "2024-12-30" },
+            { type: "image", src: "media/things/nakamura.png", alt: "matcha parfait at 茶寮都路里 (kyoto)", subtitle: "matcha parfait at 茶寮都路里 (kyoto)", noModal: true, added: "2025-12-30" },
+            { type: "text", content: "warabimochi from 一幸庵 (tokyo)", noModal: true, added: "2022-12-30" },
+            { type: "text", content: "soba from 雷庵 (tokyo)", noModal: true, added: "2022-12-30" },
+            { type: "text", content: "octopus bone marrow fusilli from Marea (nyc)", noModal: true, added: "2020-03-03" },
+            { type: "text", content: "amaebi at Sushi Ota (san diego)", noModal: true, added: "2025-10-05" },
+            { type: "image", src: "media/things/soft-serve-angler.png", alt: "Soft serve at Angler (SF)", subtitle: "soft serve at Angler (SF)", noModal: true, added: "2026-01-19" },
+            { type: "text", content: "chocolate budino at Seven Hills (sf)", noModal: true, added: "2026-03-12" },
+            { type: "text", content: "mochi with crab at Spectrum (amsterdam)", noModal: true, added: "2025-05-18" },
+            { type: "image", src: "media/things/pujol.jpg", alt: "mole at pujol (cdmx)", subtitle: "mole at pujol (CDMX)", noModal: true, added: "2024-08-17" },
+        ]
+    },
+    {
         slug: "art",
         title: "art",
         updated: "2026-04-24",
-        noModal: true,
+        detailView: true,
         blocks: [
             { type: "image", src: "media/things/hiroshi-surface-of-revolution-2006.png", alt: "Hiroshi Sugimoto", subtitle: "Surface of Revolution with Constant Negative Curvature, 2006 by Hiroshi Sugimoto", added: "2026-04-25" },
             { type: "image", src: "media/things/hiroshi-hypersphere-2012.png", alt: "Hiroshi Sugimoto", subtitle: "Constant Curvature Surface Revolution, 2012 by Hiroshi Sugimoto", added: "2026-04-25" },
@@ -75,36 +103,11 @@ const CHANNELS = [
         title: "beliefs",
         updated: "2025-04-24",
         blocks: [
-            { type: "text", content: "happiness is the delta between expectations and reality" },
-            { type: "text", content: "incentives are human physics" },
-            { type: "text", content: "observe peoples’ revealed preferences, talk is cheap" },
-        ]
-    },
-    {
-        slug: "dishes",
-        title: "dishes",
-        updated: "2026-04-24",
-        // pinned: "I mostly keep track of favorite dishes over favorite restaurants.",
-        blocks: [
-            { type: "text", content: "dakos in greece", noModal: true, added: "2025-06-15" },
-            { type: "text", content: "pao de quiejo, anywhere", noModal: true, added: "2020-12-28" },
-            { type: "text", content: "tiramisu, at many places", link: "tiramisu", added: "2026-04-25" },
-            { type: "text", content: "octopus pizzaiolo and spicy rig from Carbone", noModal: true, added: "2023-01-11" },
-            { type: "text", content: "duck carnitas from Damian (LA)", noModal: true, added: "2024-04-02" },
-            { type: "text", content: "cold niku udon at Yume (cambridge)", noModal: true, added: "2019-10-23" },
-            { type: "image", src: "media/things/ruleofthirds.avif", alt: "souffle pancakes from Rule of Thirds (brooklyn)",  subtitle: "souffle pancakes from Rule of Thirds (brooklyn)", noModal: true, added: "2021-02-14" },
-            { type: "image", src: "media/things/lilia.webp", alt: "agnolotti filled w sheep's milk cheese & covered in honey from lilia (brooklyn)", subtitle: "agnolotti filled w sheep's milk cheese & covered in honey from lilia (brooklyn)", noModal: true, added: "2021-02-14" },
-            { type: "text", content: "affogato from Caffe Panna (NYC)", noModal: true, added: "2025-11-30" },
-            { type: "text", content: "crab noodles at 人和馆 (shanghai)", noModal: true, added: "2024-12-30" },
-            { type: "image", src: "media/things/nakamura.png", alt: "matcha parfait at 茶寮都路里 (kyoto)", subtitle: "matcha parfait at 茶寮都路里 (kyoto)", noModal: true, added: "2025-12-30" },
-            { type: "text", content: "warabimochi from 一幸庵 (tokyo)", noModal: true, added: "2022-12-30" },
-            { type: "text", content: "soba from 雷庵 (tokyo)", noModal: true, added: "2022-12-30" },
-            { type: "text", content: "octopus bone marrow fusilli from Marea (NYC)", noModal: true, added: "2020-03-03" },
-            { type: "text", content: "amaebi at Sushi Ota (SD)", noModal: true, added: "2025-10-05" },
-            { type: "image", src: "media/things/soft-serve-angler.png", alt: "Soft serve at Angler (SF)", subtitle: "soft serve at Angler (SF)", noModal: true, added: "2026-01-19" },
-            { type: "text", content: "chocolate budino at Seven Hills (SF)", noModal: true, added: "2026-03-12" },
-            { type: "text", content: "mochi with crab at Spectrum (Amsterdam)", noModal: true, added: "2025-05-18" },
-            { type: "image", src: "media/things/pujol.jpg", alt: "mole at pujol (CDMX)", subtitle: "mole at pujol (CDMX)", noModal: true, added: "2024-08-17" },
+            { type: "text", content: "happiness is the delta between expectations and reality", added: "2026-05-07" },
+            { type: "text", content: "incentives are human physics", added: "2026-04-22" },
+            { type: "text", content: "talk is cheap", added: "2026-04-03" },
+            { type: "text", content: "Award-winning painter, Georgia O'Keefe, suggests optimizing for your interests rather than your happiness: \"I do not like the idea of happiness — it is too momentary. I would say that I was always busy and interested in something — interest has more meaning to me than the idea of happiness.\"", added: "2026-03-28" },
+            { type: "text", content: "The point is, not to resist the flow. You go up when you're supposed to go up and down when you're supposed to go down. When you're supposed to go up, find the highest tower and climb to the top. When you're supposed to go down, find the deepest well and go down to the bottom. When there's no flow, stay still.", added: "2026-03-15" }
         ]
     },
     // {
@@ -222,9 +225,9 @@ function renderGrid() {
 
     $grid.innerHTML = CHANNELS.filter(ch => !ch.hidden).map(ch => {
         const lastAdded = ch.blocks.reduce((latest, b) => {
-            const d = b.added || ch.updated;
-            return d > latest ? d : latest;
-        }, ch.updated);
+            if (!b.added) return latest;
+            return (!latest || b.added > latest) ? b.added : latest;
+        }, null) || ch.updated;
         return `
         <a class="things-card" href="#${ch.slug}">
             <span class="things-card-title">${ch.title}</span>
@@ -259,7 +262,7 @@ function renderDetail(slug) {
     const blocksHTML = channel.blocks.length === 0
         ? '<p class="things-empty">No blocks yet.</p>'
         : sorted.map(({ block, i }) => {
-            const noClick = channel.noModal || block.noModal;
+            const noClick = (channel.noModal || block.noModal) && !channel.detailView;
             const noClickClass = noClick && !block.link ? ' things-block-static' : '';
             const timeHTML = `<div class="things-block-time">${timeAgo(block.added || channel.updated)}</div>`;
             if (block.type === "image") {
@@ -296,6 +299,51 @@ function renderDetail(slug) {
 
 }
 
+// Art / detail view for individual blocks
+function renderBlockDetail(slug, index) {
+    const channel = findChannel(slug);
+    if (!channel || !channel.detailView) { renderGrid(); return; }
+
+    const block = channel.blocks[index];
+    if (!block) { renderDetail(slug); return; }
+
+    $grid.style.display = "none";
+    $detail.style.display = "";
+
+    // Sorted order for prev/next navigation
+    const sorted = channel.blocks.map((b, i) => ({ block: b, i }))
+        .sort((a, b) => new Date(b.block.added || channel.updated) - new Date(a.block.added || channel.updated));
+
+    const sortedPos = sorted.findIndex(s => s.i === index);
+    const prev = sortedPos > 0 ? sorted[sortedPos - 1].i : null;
+    const next = sortedPos < sorted.length - 1 ? sorted[sortedPos + 1].i : null;
+
+    const prevLink = prev !== null ? `<a href="#${slug}/${prev}" class="things-art-nav-link">\u2190 prev</a>` : '<span></span>';
+    const nextLink = next !== null ? `<a href="#${slug}/${next}" class="things-art-nav-link">next \u2192</a>` : '<span></span>';
+
+    const commentaryHTML = block.commentary
+        ? `<div class="things-art-commentary">${block.commentary}</div>`
+        : '';
+
+    $detail.innerHTML = `
+        <a href="#${slug}" class="things-back">\u2190 ${channel.title}</a>
+        <div class="things-art-detail">
+            <div class="things-art-image">
+                <img src="${block.src}" alt="${block.alt || ''}">
+            </div>
+            <div class="things-art-info">
+                <p class="things-art-subtitle">${block.subtitle || block.alt || ''}</p>
+                ${commentaryHTML}
+                ${block.added ? `<p class="things-art-date">${timeAgo(block.added)}</p>` : ''}
+            </div>
+        </div>
+        <div class="things-art-nav">
+            ${prevLink}
+            ${nextLink}
+        </div>
+    `;
+}
+
 // Modal — event delegation for block clicks
 document.addEventListener("click", (e) => {
     const block = e.target.closest(".things-block");
@@ -307,6 +355,13 @@ document.addEventListener("click", (e) => {
         }
         const ch = findChannel(block.dataset.slug);
         const data = ch.blocks[parseInt(block.dataset.index)];
+
+        // Detail view channels navigate to slug/index
+        if (ch.detailView) {
+            location.hash = `${block.dataset.slug}/${block.dataset.index}`;
+            return;
+        }
+
         if (ch.noModal || data.noModal) return;
         const closeBtn = `<button class="things-modal-close" aria-label="Close">\u00D7</button>`;
         if (data.type === "image") {
@@ -337,8 +392,17 @@ document.addEventListener("keydown", (e) => {
 // hash routing
 function route() {
     const hash = location.hash.replace("#", "");
-    if (hash) { renderDetail(hash); }
-    else { renderGrid(); }
+    if (!hash) { renderGrid(); return; }
+
+    // Detail view: slug/index (e.g. art/3)
+    const slash = hash.indexOf("/");
+    if (slash !== -1) {
+        const slug = hash.slice(0, slash);
+        const idx = parseInt(hash.slice(slash + 1));
+        if (!isNaN(idx)) { renderBlockDetail(slug, idx); return; }
+    }
+
+    renderDetail(hash);
 }
 
 window.addEventListener("hashchange", route);
