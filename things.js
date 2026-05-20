@@ -135,6 +135,33 @@ const CHANNELS = [
         ]
     },
     {
+        slug: "life-in-sf",
+        title: "life in sf",
+        updated: "2026-05-19",
+        noModal: true,
+        blocks: [
+            { type: "image", src: "media/things/sf-img_7921.jpg", alt: "sunset over trees and a driveway", added: "2026-05-19" },
+            { type: "image", src: "media/things/sf-img_7868.jpg", alt: "cozy bookstore café with warm lighting", added: "2026-05-15" },
+            { type: "image", src: "media/things/sf-img_7420.jpg", alt: "white flowers in a vase on a minimal desk", added: "2026-04-15" },
+            { type: "image", src: "media/things/sf-img_7398.jpg", alt: "brunch spread with flowers, green juice, and a salad plate", added: "2026-04-12" },
+            { type: "image", src: "media/things/sf-img_7298.jpg", alt: "kaiseki plate at a Japanese restaurant", added: "2026-04-05" },
+            { type: "image", src: "media/things/sf-img_7061.jpg", alt: "long dinner table set with orange flowers and wine glasses", added: "2026-03-18" },
+            { type: "image", src: "media/things/sf-img_6902.jpg", alt: "rooftop sunset dinner with city views", added: "2026-03-06" },
+            { type: "image", src: "media/things/sf-img_6754.jpg", alt: "Transamerica Pyramid from a courtyard", added: "2026-02-27" },
+            { type: "image", src: "media/things/sf-img_6742.jpg", alt: "apartment room mid-renovation with a ladder", added: "2026-02-23" },
+            { type: "image", src: "media/things/sf-img_6725.jpg", alt: "looking up at FiDi buildings against the sky", added: "2026-02-22" },
+            { type: "image", src: "media/things/sf-img_6032.jpg", alt: "garden pathway with greenery and a wall", added: "2025-12-27" },
+            { type: "image", src: "media/things/sf-img_6031.jpg", alt: "James Turrell skyspace in magenta and blue", added: "2025-12-27" },
+            { type: "video", src: "media/things/sf-img_4955.mov", alt: "video from sf", added: "2025-11-21" },
+            { type: "image", src: "media/things/sf-img_4802.jpg", alt: "living room with floor-to-ceiling windows on a foggy day", added: "2025-11-16" },
+            { type: "image", src: "media/things/sf-img_4723.jpg", alt: "pink and orange sunset from a rooftop", added: "2025-11-11" },
+            { type: "video", src: "media/things/sf-img_4668.mov", alt: "video from sf", added: "2025-11-08" },
+            { type: "image", src: "media/things/sf-img_4353.jpg", alt: "outdoor patio at golden hour with teak furniture", added: "2025-11-01" },
+            { type: "image", src: "media/things/sf-img_3277.jpg", alt: "sake bottles at an omakase counter", added: "2025-09-18" },
+            { type: "image", src: "media/things/sf-img_2962.jpg", alt: "navy kitchen with marble backsplash and brass fixtures", added: "2025-09-02" },
+        ]
+    },
+    {
         slug: "linguistics",
         title: "thoughts on language",
         updated: "2026-04-24",
@@ -223,12 +250,15 @@ function renderGrid() {
     $detail.style.display = "none";
     $grid.style.display = "";
 
-    $grid.innerHTML = CHANNELS.filter(ch => !ch.hidden).map(ch => {
+    const channels = CHANNELS.filter(ch => !ch.hidden).map(ch => {
         const lastAdded = ch.blocks.reduce((latest, b) => {
             if (!b.added) return latest;
             return (!latest || b.added > latest) ? b.added : latest;
         }, null) || ch.updated;
-        return `
+        return { ch, lastAdded };
+    }).sort((a, b) => new Date(b.lastAdded) - new Date(a.lastAdded));
+
+    $grid.innerHTML = channels.map(({ ch, lastAdded }) => `
         <a class="things-card" href="#${ch.slug}">
             <span class="things-card-title">${ch.title}</span>
             <div class="things-card-meta">
@@ -236,8 +266,7 @@ function renderGrid() {
                 <span>${timeAgo(lastAdded)}</span>
             </div>
         </a>
-    `;
-    }).join("");
+    `).join("");
 }
 
 function findChannel(slug) {
@@ -265,6 +294,16 @@ function renderDetail(slug) {
             const noClick = (channel.noModal || block.noModal) && !channel.detailView;
             const noClickClass = noClick && !block.link ? ' things-block-static' : '';
             const timeHTML = `<div class="things-block-time">${timeAgo(block.added || channel.updated)}</div>`;
+            if (block.type === "video") {
+                const subtitleHTML = block.subtitle ? `<div class="things-block-subtitle">${block.subtitle}</div>` : '';
+                return `<div class="things-block-wrap">
+                    <div class="things-block things-block-image${noClickClass}" data-slug="${slug}" data-index="${i}">
+                        <video src="${block.src}" autoplay loop muted playsinline></video>
+                    </div>
+                    ${subtitleHTML}
+                    ${timeHTML}
+                </div>`;
+            }
             if (block.type === "image") {
                 const subtitleHTML = block.subtitle ? `<div class="things-block-subtitle">${block.subtitle}</div>` : '';
                 return `<div class="things-block-wrap">

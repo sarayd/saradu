@@ -8,7 +8,11 @@
       "Bash(sips:*)",
       "Bash(ls:*)",
       "Bash(find:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(for:*)",
+      "Bash(do sips:*)",
+      "Bash(done)",
+      "Bash(do)"
     ]
   },
   "enabledPlugins": {

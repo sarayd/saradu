@@ -471,16 +471,23 @@ body {
 .things-block-image {
     padding: 0;
     background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .things-block-image::after {
     display: none;
 }
 
-.things-block-image img {
+.things-block-image img,
+.things-block-image video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
 }
 
