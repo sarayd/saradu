@@ -12,7 +12,8 @@
       "Bash(for:*)",
       "Bash(do sips:*)",
       "Bash(done)",
-      "Bash(do)"
+      "Bash(do)",
+      "Bash(du:*)"
     ]
   },
   "enabledPlugins": {
