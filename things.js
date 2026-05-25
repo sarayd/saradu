@@ -12,6 +12,7 @@ const CHANNELS = [
         updated: "2026-04-24",
         // pinned: "I mostly keep track of favorite dishes over favorite restaurants.",
         blocks: [
+            { type: "text", content: "wasabi pea soup at arquet (sf)", noModal: true, added: "2026-05-24" },
             { type: "text", content: "sweet potato basque cheesecake w caviar at sorrel (sf)", noModal: true, added: "2026-05-10" },
             { type: "text", content: "dakos in greece", noModal: true, added: "2025-06-15" },
             { type: "text", content: "pao de quiejo, anywhere", noModal: true, added: "2020-12-28" },
