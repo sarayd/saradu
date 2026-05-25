@@ -13,7 +13,16 @@
       "Bash(do sips:*)",
       "Bash(done)",
       "Bash(do)",
-      "Bash(du:*)"
+      "Bash(du:*)",
+      "Bash(do echo '=== $\\(basename $f\\) ===' sips -g orientation $f 2)",
+      "Bash(/dev/null sips -g pixelWidth -g pixelHeight $f)",
+      "Bash(convert:*)",
+      "Bash(magick:*)",
+      "Bash(pip3 install:*)",
+      "Bash(if [ -f \"/Users/sara/Downloads/$f.JPG\" ])",
+      "Bash(then echo \"$f: exists in Downloads\")",
+      "Bash(else echo \"$f: MISSING from Downloads\")",
+      "Bash(fi:*)"
     ]
   },
   "enabledPlugins": {
