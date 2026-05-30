@@ -22,7 +22,13 @@
       "Bash(if [ -f \"/Users/sara/Downloads/$f.JPG\" ])",
       "Bash(then echo \"$f: exists in Downloads\")",
       "Bash(else echo \"$f: MISSING from Downloads\")",
-      "Bash(fi:*)"
+      "Bash(fi:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(lsof:*)",
+      "Bash(npx serve:*)"
     ]
   },
   "enabledPlugins": {
