@@ -7,11 +7,12 @@
 /alloy.html /alloy 301
 /colors.html /colors 301
 /color-002fa7.html /colors 301
+/fathers-day-2026.html /fathers-day-2026 301
 
 # Portfolio redirect
 /portfolio /investing 301
 /portfolio.html /investing 301
 
 # Catch all - serve .html files without extension
+/fathers-day-2026 /fathers-day-2026.html 200
 /* /index.html 200
-

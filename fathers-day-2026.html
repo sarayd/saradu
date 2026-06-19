@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Round of Golf — for Dad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15232A;
+    --ocean-top:#2A4651;
+    --ocean-bot:#1B333C;
+    --horizon:#E7B566;
+    --brass:#A9863C;
+    --brass-lt:#C9A857;
+    --bone:#F5F1E7;
+    --bone-2:#ECE5D6;
+    --fairway:#4C5E45;
+    --text:#26333A;
+    --muted:#737F86;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 16px;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #20343C 0%, #15232A 55%, #0E1A20 100%);
+    font-family:'Archivo',system-ui,sans-serif;
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---- card ---- */
+  .card{
+    position:relative;
+    width:100%;
+    max-width:440px;
+    background:var(--bone);
+    border-radius:4px;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.4) inset,
+      0 40px 80px -32px rgba(0,0,0,.65),
+      0 8px 24px -12px rgba(0,0,0,.4);
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(18px);
+    animation:rise 1s cubic-bezier(.2,.7,.2,1) .1s forwards;
+  }
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  /* hairline frame just inside the edge */
+  .card::after{
+    content:"";
+    position:absolute;
+    inset:9px;
+    border:1px solid rgba(169,134,60,.45);
+    border-radius:2px;
+    pointer-events:none;
+  }
+
+  /* ---- top meta row ---- */
+  .meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:22px 26px 14px;
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:600;
+  }
+  .meta .loc{color:var(--brass);}
+
+  /* ---- scene ---- */
+  .scene{
+    display:block;
+    width:100%;
+    height:172px;
+  }
+  .flag{transform-origin:left center;animation:wave 4.5s ease-in-out infinite;}
+  @keyframes wave{
+    0%,100%{transform:scaleX(1) skewX(0deg);}
+    50%{transform:scaleX(.86) skewX(-6deg);}
+  }
+
+  /* ---- body ---- */
+  .body{padding:30px 30px 8px;text-align:center;position:relative;}
+
+  .eyebrow{
+    font-size:10px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--fairway);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .headline{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    font-size:46px;
+    line-height:.98;
+    letter-spacing:.01em;
+    color:var(--ink);
+  }
+  .sub{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:20px;
+    color:var(--brass);
+    margin-top:8px;
+  }
+  .note{
+    max-width:300px;
+    margin:18px auto 4px;
+    font-size:13px;
+    line-height:1.6;
+    color:var(--text);
+  }
+
+  /* ---- divider ---- */
+  .rule{
+    margin:24px 30px 0;
+    border:0;
+    border-top:1px solid rgba(169,134,60,.4);
+    position:relative;
+  }
+  .rule::before{
+    content:"⛳";
+    position:absolute;
+    top:-9px;left:50%;
+    transform:translateX(-50%);
+    background:var(--bone);
+    padding:0 10px;
+    font-size:12px;
+    filter:grayscale(.2);
+  }
+
+  /* ---- voucher footer ---- */
+  .terms{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:4px;
+    padding:22px 30px 26px;
+  }
+  .terms div{text-align:left;}
+  .terms .k{
+    font-size:8.5px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:600;
+    margin-bottom:4px;
+  }
+  .terms .v{
+    font-family:'Cormorant Garamond',serif;
+    font-size:16px;
+    color:var(--ink);
+    line-height:1.1;
+  }
+  .terms div:nth-child(2){text-align:center;}
+  .terms div:nth-child(3){text-align:right;}
+
+  /* ---- seal ---- */
+  .seal{
+    position:absolute;
+    right:18px;
+    top:128px;
+    width:104px;height:104px;
+    z-index:3;
+    opacity:0;
+    transform:scale(1.5) rotate(-12deg);
+    animation:stamp .5s cubic-bezier(.2,1.5,.4,1) 1s forwards;
+  }
+  @keyframes stamp{
+    60%{opacity:1;transform:scale(.96) rotate(-9deg);}
+    100%{opacity:1;transform:scale(1) rotate(-10deg);}
+  }
+  .seal svg{display:block;width:100%;height:100%;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3));}
+
+  /* ---- accessibility / motion / print ---- */
+  @media (prefers-reduced-motion:reduce){
+    .card,.seal,.flag{animation:none;opacity:1;transform:none;}
+    .card{opacity:1;transform:none;}
+    .seal{opacity:1;transform:rotate(-10deg);}
+  }
+  @media print{
+    body{background:#fff;padding:0;}
+    .card{box-shadow:none;}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+  @media (max-width:380px){
+    .headline{font-size:38px;}
+    .seal{width:88px;height:88px;right:12px;top:118px;}
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="meta">
+      <span class="loc">Trump National · Los Angeles</span>
+      <span>No. 01</span>
+    </div>
+
+    <!-- Pacific cliffs at dusk -->
+    <svg class="scene" viewBox="0 0 440 172" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A golf flag on cliffs above the Pacific at dusk">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2A4651"/>
+          <stop offset="62%" stop-color="#3C5A60"/>
+          <stop offset="100%" stop-color="#E7B566"/>
+        </linearGradient>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#E7B566"/>
+          <stop offset="22%" stop-color="#6E8479"/>
+          <stop offset="100%" stop-color="#1B333C"/>
+        </linearGradient>
+        <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FBE6BC"/>
+          <stop offset="100%" stop-color="#E7B566" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <rect width="440" height="172" fill="url(#sky)"/>
+      <circle cx="300" cy="96" r="58" fill="url(#sun)"/>
+      <circle cx="300" cy="96" r="15" fill="#FBEFD2"/>
+
+      <!-- sea -->
+      <rect y="96" width="440" height="76" fill="url(#sea)"/>
+      <path d="M170 108 q40 4 80 0 t80 0 t80 0" stroke="#F5E4C0" stroke-width="1" fill="none" opacity=".5"/>
+      <path d="M150 120 q50 5 100 0 t100 0 t100 0" stroke="#CDE0D6" stroke-width="1" fill="none" opacity=".35"/>
+
+      <!-- headland / fairway bluff -->
+      <path d="M0 172 L0 92 Q70 70 150 86 Q200 96 230 120 L260 172 Z" fill="#4C5E45"/>
+      <path d="M0 172 L0 118 Q90 104 170 120 Q210 128 232 150 L250 172 Z" fill="#3C4D38"/>
+      <!-- subtle fairway sheen -->
+      <path d="M20 138 Q90 118 160 130" stroke="#6E8458" stroke-width="2" fill="none" opacity=".5"/>
+
+      <!-- flagstick on the bluff -->
+      <line x1="96" y1="52" x2="96" y2="104" stroke="#1B2A22" stroke-width="2"/>
+      <g class="flag">
+        <path d="M96 54 L126 60 L96 70 Z" fill="#A9863C"/>
+      </g>
+      <ellipse cx="96" cy="104" rx="7" ry="2.4" fill="#26331F"/>
+    </svg>
+
+    <!-- personal seal in place of a club crest -->
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="57" fill="none" stroke="#A9863C" stroke-width="1.5"/>
+        <circle cx="60" cy="60" r="48" fill="none" stroke="#A9863C" stroke-width="1"/>
+        <circle cx="60" cy="60" r="57" fill="#F5F1E7" opacity=".0"/>
+        <defs>
+          <path id="ring" d="M60 60 m -38 0 a 38 38 0 1 1 76 0 a 38 38 0 1 1 -76 0"/>
+        </defs>
+        <text fill="#A9863C" font-family="Archivo,sans-serif" font-size="9" font-weight="600" letter-spacing="2.5">
+          <textPath href="#ring" startOffset="0%">ONE ROUND · WITH SARA · ONE ROUND · WITH SARA ·</textPath>
+        </text>
+        <text x="60" y="60" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="30" font-weight="600" fill="#15232A">18</text>
+        <text x="60" y="76" text-anchor="middle" font-family="Archivo,sans-serif" font-size="7.5" letter-spacing="3" fill="#A9863C">HOLES</text>
+      </svg>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Redeemable in person</div>
+      <h1 class="headline">One Full Round<br>of Golf</h1>
+      <div class="sub">with your daughter</div>
+      <p class="note">
+        Good for eighteen holes on the cliffs above the Pacific, at Trump National LA,
+        the next time I'm in LA. No expiry.
+      </p>
+    </div>
+
+    <hr class="rule">
+
+    <div class="terms">
+      <div>
+        <div class="k">Bearer</div>
+        <div class="v">Dad</div>
+      </div>
+      <div>
+        <div class="k">Valid</div>
+        <div class="v">Until redeemed</div>
+      </div>
+      <div>
+        <div class="k">Issued by</div>
+        <div class="v">Sara</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

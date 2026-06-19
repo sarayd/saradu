@@ -29,6 +29,10 @@
       "destination": "/things.html"
     },
     {
+      "source": "/fathers-day-2026",
+      "destination": "/fathers-day-2026.html"
+    },
+    {
       "source": "/color-002fa7",
       "destination": "/colors.html"
     }
@@ -83,7 +87,11 @@
       "source": "/things.html",
       "destination": "/things",
       "permanent": true
+    },
+    {
+      "source": "/fathers-day-2026.html",
+      "destination": "/fathers-day-2026",
+      "permanent": true
     }
   ]
 }
-
