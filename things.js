@@ -7,6 +7,15 @@
 
 const CHANNELS = [
     {
+        slug: "ando",
+        title: "ando",
+        updated: "2026-06-20",
+        noModal: true,
+        blocks: [
+            { type: "video", src: "https://video.twimg.com/ext_tw_video/2067334366494441957/pu/vid/avc1/1280x882/ando.mp4", alt: "Ando interface preview", link: "https://x.com/andocorporation/status/2067334366494441957", added: "2026-06-20" },
+        ]
+    },
+    {
         slug: "dishes",
         title: "dishes",
         updated: "2026-06-13",
@@ -304,8 +313,10 @@ function renderDetail(slug) {
             const timeHTML = `<div class="things-block-time">${timeAgo(block.added || channel.updated)}</div>`;
             if (block.type === "video") {
                 const subtitleHTML = block.subtitle ? `<div class="things-block-subtitle">${block.subtitle}</div>` : '';
+                const linkAttr = block.link ? ` data-link-url="${block.link}"` : '';
+                const linkClass = block.link ? ' things-block-link' : '';
                 return `<div class="things-block-wrap">
-                    <div class="things-block things-block-image${noClickClass}" data-slug="${slug}" data-index="${i}">
+                    <div class="things-block things-block-image${linkClass}${noClickClass}" data-slug="${slug}" data-index="${i}"${linkAttr}>
                         <video src="${block.src}" autoplay loop muted playsinline></video>
                     </div>
                     ${subtitleHTML}
@@ -395,6 +406,12 @@ function renderBlockDetail(slug, index) {
 document.addEventListener("click", (e) => {
     const block = e.target.closest(".things-block");
     if (block && block.dataset.slug) {
+        // If block links to an external URL, open it before any modal/detail behavior.
+        if (block.dataset.linkUrl) {
+            window.location.href = block.dataset.linkUrl;
+            return;
+        }
+
         // If block links to a sub-channel, navigate there
         if (block.dataset.link) {
             location.hash = block.dataset.link;
