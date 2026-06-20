@@ -9,9 +9,11 @@ const CHANNELS = [
     {
         slug: "dishes",
         title: "dishes",
-        updated: "2026-04-24",
+        updated: "2026-06-13",
         // pinned: "I mostly keep track of favorite dishes over favorite restaurants.",
         blocks: [
+            { type: "image", src: "media/things/turkish-pancakes-aziza.webp", alt: "turkish pancakes at aziza (sf)", subtitle: "turkish pancakes at aziza (sf)", noModal: true, added: "2026-06-06" },
+            { type: "image", src: "media/things/crudite-bear.webp", alt: "crudite from bear (napa)", subtitle: "crudite from bear (napa)", noModal: true, added: "2026-06-13" },
             { type: "text", content: "wasabi pea soup at arquet (sf)", noModal: true, added: "2026-05-24" },
             { type: "text", content: "sweet potato basque cheesecake w caviar at sorrel (sf)", noModal: true, added: "2026-05-10" },
             { type: "text", content: "dakos in greece", noModal: true, added: "2025-06-15" },
@@ -138,9 +140,11 @@ const CHANNELS = [
     {
         slug: "life-in-sf",
         title: "life in sf",
-        updated: "2026-05-24",
+        updated: "2026-06-13",
         noModal: true,
         blocks: [
+            { type: "image", src: "media/things/sf-img_8304.webp", alt: "wooden lodge in golden hills under a clear blue sky", added: "2026-06-13" },
+            { type: "image", src: "media/things/sf-img_8273.webp", alt: "sunlight filtering through a redwood canopy", added: "2026-06-07" },
             { type: "video", src: "media/things/sf-img_8001.mov", alt: "video from sf", added: "2026-05-24" },
             { type: "image", src: "media/things/sf-img_7995.webp", alt: "view from a rooftop at dusk", added: "2026-05-24" },
             { type: "image", src: "media/things/sf-img_7953.webp", alt: "evening light through apartment windows", added: "2026-05-21" },
