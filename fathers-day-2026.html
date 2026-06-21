@@ -124,6 +124,31 @@
     line-height:1.6;
     color:var(--text);
   }
+  .main-rsvp-button{
+    display:inline-grid;
+    place-items:center;
+    min-width:154px;
+    min-height:42px;
+    margin-top:20px;
+    border-radius:3px;
+    background:var(--brass);
+    color:#FFFBF1;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-decoration:none;
+    text-transform:uppercase;
+    box-shadow:0 12px 24px -16px rgba(21,35,42,.7);
+    transition:background .16s ease,transform .16s ease;
+  }
+  .main-rsvp-button:hover{
+    background:#8F7130;
+    transform:translateY(-1px);
+  }
+  .main-rsvp-button:focus-visible{
+    outline:2px solid var(--brass-lt);
+    outline-offset:3px;
+  }
 
   /* ---- divider ---- */
   .rule{
@@ -168,6 +193,169 @@
   .terms div:nth-child(2){text-align:center;}
   .terms div:nth-child(3){text-align:right;}
 
+  /* ---- rsvp form ---- */
+  .rsvp{
+    position:relative;
+    z-index:1;
+    padding:0 30px 32px;
+    scroll-margin-top:18px;
+  }
+  .rsvp::before{
+    content:"";
+    display:block;
+    border-top:1px solid rgba(169,134,60,.36);
+    margin-bottom:22px;
+  }
+  .rsvp-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:18px;
+  }
+  .rsvp-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    font-weight:600;
+    line-height:1;
+    color:var(--ink);
+  }
+  .rsvp-meta{
+    font-size:8.5px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .rsvp-form{
+    display:grid;
+    gap:14px;
+  }
+  .field{
+    border:0;
+    display:grid;
+    gap:7px;
+  }
+  .field label,
+  .field legend{
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--fairway);
+    font-weight:700;
+  }
+  .select-wrap{
+    position:relative;
+  }
+  .select-wrap::after{
+    content:"";
+    position:absolute;
+    right:15px;
+    top:50%;
+    width:8px;
+    height:8px;
+    border-right:1.6px solid var(--brass);
+    border-bottom:1.6px solid var(--brass);
+    transform:translateY(-65%) rotate(45deg);
+    pointer-events:none;
+  }
+  select{
+    width:100%;
+    appearance:none;
+    border:1px solid rgba(169,134,60,.48);
+    border-radius:3px;
+    background:#FFFBF1;
+    color:var(--ink);
+    font:600 14px/1.2 'Archivo',system-ui,sans-serif;
+    min-height:44px;
+    padding:0 42px 0 13px;
+    box-shadow:0 1px 0 rgba(255,255,255,.75) inset;
+  }
+  select:required:invalid{
+    color:var(--muted);
+    font-weight:400;
+  }
+  select option{
+    color:var(--ink);
+    font-weight:600;
+  }
+  select option[value=""]{
+    color:var(--muted);
+    font-weight:400;
+  }
+  select:focus-visible,
+  .segmented input:focus-visible + span,
+  .rsvp-button:focus-visible{
+    outline:2px solid var(--brass-lt);
+    outline-offset:2px;
+  }
+  .segmented{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:7px;
+  }
+  .segmented label{
+    display:block;
+    letter-spacing:0;
+    text-transform:none;
+  }
+  .segmented input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+  }
+  .segmented span{
+    display:grid;
+    place-items:center;
+    min-height:42px;
+    border:1px solid rgba(169,134,60,.44);
+    border-radius:3px;
+    background:#FFFBF1;
+    color:var(--ink);
+    font-size:12px;
+    font-weight:700;
+    line-height:1.15;
+    text-align:center;
+    padding:8px 6px;
+    cursor:pointer;
+    transition:background .16s ease,color .16s ease,border-color .16s ease,transform .16s ease;
+  }
+  .segmented span:hover{
+    border-color:rgba(169,134,60,.72);
+    transform:translateY(-1px);
+  }
+  .segmented input:checked + span{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--bone);
+  }
+  .rsvp-button{
+    width:100%;
+    min-height:46px;
+    border:0;
+    border-radius:3px;
+    background:var(--brass);
+    color:#FFFBF1;
+    font:700 11px/1 'Archivo',system-ui,sans-serif;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    cursor:pointer;
+    box-shadow:0 12px 24px -16px rgba(21,35,42,.7);
+    transition:background .16s ease,transform .16s ease;
+  }
+  .rsvp-button:hover{
+    background:#8F7130;
+    transform:translateY(-1px);
+  }
+  .rsvp-status{
+    min-height:16px;
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.4;
+    text-align:center;
+  }
+
   /* ---- seal ---- */
   .seal{
     position:absolute;
@@ -199,6 +387,9 @@
   @media (max-width:380px){
     .headline{font-size:38px;}
     .seal{width:88px;height:88px;right:12px;top:118px;}
+    .rsvp{padding:0 24px 28px;}
+    .rsvp-head{align-items:flex-start;flex-direction:column;gap:6px;}
+    .segmented span{font-size:11px;padding-left:4px;padding-right:4px;}
   }
 </style>
 </head>
@@ -276,6 +467,7 @@
         Good for eighteen holes on the cliffs above the Pacific, at Trump National LA,
         the next time I'm in LA. No expiry.
       </p>
+      <a class="main-rsvp-button" href="#rsvp" data-rsvp-jump>RSVP</a>
     </div>
 
     <hr class="rule">
@@ -294,6 +486,160 @@
         <div class="v">Sara</div>
       </div>
     </div>
+
+    <section class="rsvp" id="rsvp" aria-labelledby="rsvp-title" tabindex="-1">
+      <div class="rsvp-head">
+        <h2 class="rsvp-title" id="rsvp-title">RSVP</h2>
+        <div class="rsvp-meta">Club specs</div>
+      </div>
+
+      <form class="rsvp-form" data-rsvp-form action="mailto:sara.ying.du@gmail.com" method="post">
+        <div class="field">
+          <label for="iron-shaft-length">Preferred iron shaft length</label>
+          <div class="select-wrap">
+            <select id="iron-shaft-length" name="ironShaftLength" required>
+              <option value="">Select length</option>
+              <option value='-2"'>-2"</option>
+              <option value='-1.75"'>-1.75"</option>
+              <option value='-1.5"'>-1.5"</option>
+              <option value='-1.25"'>-1.25"</option>
+              <option value='-1"'>-1"</option>
+              <option value='-0.75"'>-0.75"</option>
+              <option value='-0.5"'>-0.5"</option>
+              <option value='-0.25"'>-0.25"</option>
+              <option value="Standard">Standard</option>
+              <option value='+0.25"'>+0.25"</option>
+              <option value='+0.5"'>+0.5"</option>
+              <option value='+0.75"'>+0.75"</option>
+              <option value='+1"'>+1"</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="shaft-manufacturer">Shaft manufacturer</label>
+          <div class="select-wrap">
+            <select id="shaft-manufacturer" name="shaftManufacturer" required>
+              <option value="">Select manufacturer</option>
+              <option value="Aerotech">Aerotech</option>
+              <option value="Graphite Design">Graphite Design</option>
+              <option value="KBS">KBS</option>
+              <option value="Mitsubishi">Mitsubishi</option>
+              <option value="Nippon">Nippon</option>
+              <option value="Project X">Project X</option>
+              <option value="True Temper">True Temper</option>
+              <option value="UST Mamiya">UST Mamiya</option>
+            </select>
+          </div>
+        </div>
+
+        <fieldset class="field">
+          <legend>Shaft stiffness</legend>
+          <div class="segmented">
+            <label>
+              <input type="radio" name="shaftStiffness" value="Regular" required>
+              <span>Regular</span>
+            </label>
+            <label>
+              <input type="radio" name="shaftStiffness" value="Stiff">
+              <span>Stiff</span>
+            </label>
+            <label>
+              <input type="radio" name="shaftStiffness" value="Extra stiff">
+              <span>Extra stiff</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="grip-type">Grip type</label>
+          <div class="select-wrap">
+            <select id="grip-type" name="gripType" required>
+              <option value="">Select grip type</option>
+              <option value="Golf Pride">Golf Pride</option>
+              <option value="Super Stroke">Super Stroke</option>
+              <option value="Winn">Winn</option>
+              <option value="Iomic">Iomic</option>
+              <option value="Titleist">Titleist</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="grip-size">Grip size</label>
+          <div class="select-wrap">
+            <select id="grip-size" name="gripSize" required>
+              <option value="">Select grip size</option>
+              <option value="Standard Size">Standard Size</option>
+              <option value="1/64 Oversize (+1 Wrap)">1/64 Oversize (+1 Wrap)</option>
+              <option value="1/32 Oversize (+2 Wraps)">1/32 Oversize (+2 Wraps)</option>
+              <option value="3/64 Oversize (+3 Wraps)">3/64 Oversize (+3 Wraps)</option>
+              <option value="1/16 Oversize (+4 Wraps)">1/16 Oversize (+4 Wraps)</option>
+            </select>
+          </div>
+        </div>
+
+        <fieldset class="field">
+          <legend>Installation</legend>
+          <div class="segmented">
+            <label>
+              <input type="radio" name="installation" value="Logo Down" required>
+              <span>Logo Down</span>
+            </label>
+            <label>
+              <input type="radio" name="installation" value="Standard">
+              <span>Standard</span>
+            </label>
+            <label>
+              <input type="radio" name="installation" value="Grip In Box">
+              <span>Grip In Box</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <button class="rsvp-button" type="submit">Submit RSVP</button>
+        <div class="rsvp-status" data-rsvp-status aria-live="polite"></div>
+      </form>
+    </section>
   </div>
+
+  <script>
+    const rsvpForm = document.querySelector('[data-rsvp-form]');
+    const rsvpStatus = document.querySelector('[data-rsvp-status]');
+    const rsvpSection = document.querySelector('#rsvp');
+    const rsvpJump = document.querySelector('[data-rsvp-jump]');
+
+    rsvpJump.addEventListener('click', (event) => {
+      event.preventDefault();
+      rsvpSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => {
+        rsvpSection.focus({ preventScroll: true });
+      }, 350);
+      history.replaceState(null, '', '#rsvp');
+    });
+
+    rsvpForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const data = new FormData(rsvpForm);
+      const lines = [
+        "Father's Day golf RSVP",
+        "",
+        `Preferred iron shaft length: ${data.get('ironShaftLength')}`,
+        `Shaft manufacturer: ${data.get('shaftManufacturer')}`,
+        `Shaft stiffness: ${data.get('shaftStiffness')}`,
+        `Grip type: ${data.get('gripType')}`,
+        `Grip size: ${data.get('gripSize')}`,
+        `Installation: ${data.get('installation')}`
+      ];
+
+      const subject = encodeURIComponent("Father's Day golf RSVP");
+      const body = encodeURIComponent(lines.join('\n'));
+
+      navigator.clipboard?.writeText(lines.join('\n')).catch(() => {});
+      rsvpStatus.textContent = 'Opening your RSVP draft...';
+      window.location.href = `mailto:sara.ying.du@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
 </body>
 </html>
