@@ -12,7 +12,7 @@ const CHANNELS = [
         updated: "2026-06-20",
         noModal: true,
         blocks: [
-            { type: "video", src: "https://video.twimg.com/ext_tw_video/2067334366494441957/pu/vid/avc1/1280x882/ando.mp4", alt: "Ando interface preview", link: "https://x.com/andocorporation/status/2067334366494441957", added: "2026-06-20" },
+            { type: "video", src: "media/things/ando-launch-preview.mp4", poster: "media/things/ando-launch-preview.webp", alt: "Ando interface preview", link: "https://x.com/andocorporation/status/2067334366494441957", added: "2026-06-20" },
         ]
     },
     {
@@ -315,9 +315,10 @@ function renderDetail(slug) {
                 const subtitleHTML = block.subtitle ? `<div class="things-block-subtitle">${block.subtitle}</div>` : '';
                 const linkAttr = block.link ? ` data-link-url="${block.link}"` : '';
                 const linkClass = block.link ? ' things-block-link' : '';
+                const posterAttr = block.poster ? ` poster="${block.poster}"` : '';
                 return `<div class="things-block-wrap">
                     <div class="things-block things-block-image${linkClass}${noClickClass}" data-slug="${slug}" data-index="${i}"${linkAttr}>
-                        <video src="${block.src}" autoplay loop muted playsinline></video>
+                        <video src="${block.src}"${posterAttr} autoplay loop muted playsinline preload="auto"></video>
                     </div>
                     ${subtitleHTML}
                     ${timeHTML}
