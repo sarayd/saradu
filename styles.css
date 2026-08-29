@@ -336,6 +336,7 @@ body {
 }
 
 .things-card {
+    position: relative;
     aspect-ratio: 1;
     display: flex;
     flex-direction: column;
@@ -348,6 +349,19 @@ body {
     transition: border-color 0.2s ease;
     text-align: center;
     gap: 0.5rem;
+}
+
+.things-card-pin {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 11px;
+    height: 11px;
+    fill: none;
+    stroke: #c6c6c6;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .things-card:hover {
@@ -373,6 +387,10 @@ body {
     font-size: 12px;
     color: #999;
     line-height: 1.4;
+}
+
+.things-card-time {
+    color: #bbb !important;
 }
 
 /* Detail view */
@@ -458,6 +476,54 @@ body {
     font-size: 12px;
     color: #999;
     margin-top: 0.5rem !important;
+}
+
+.things-block-hover-swap {
+    display: grid;
+    align-content: start;
+}
+
+.things-block-hover-swap > p {
+    grid-area: 1 / 1;
+}
+
+.things-block-hover-swap .things-block-label {
+    filter: blur(0);
+    transition:
+        opacity 180ms cubic-bezier(0.25, 0.1, 0.25, 1) 45ms,
+        filter 180ms cubic-bezier(0.25, 0.1, 0.25, 1) 45ms;
+}
+
+.content .things-block-hover-swap .things-block-hover-desc {
+    margin-top: 0 !important;
+    font-size: 14px;
+    color: #aaa;
+    opacity: 0;
+    filter: blur(1px);
+    transition:
+        opacity 160ms cubic-bezier(0.25, 0.1, 0.25, 1),
+        filter 160ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.things-block-hover-swap:hover .things-block-label {
+    opacity: 0;
+    filter: blur(1px);
+    transition-delay: 0ms;
+}
+
+.things-block-hover-swap:hover .things-block-hover-desc {
+    opacity: 1;
+    filter: blur(0);
+    transition-duration: 240ms;
+    transition-delay: 45ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .things-block-hover-swap .things-block-label,
+    .content .things-block-hover-swap .things-block-hover-desc {
+        filter: none;
+        transition: opacity 120ms ease;
+    }
 }
 
 .things-block-link .things-block-arrow {

@@ -9,10 +9,27 @@ const CHANNELS = [
     {
         slug: "ando",
         title: "ando",
-        updated: "2026-06-20",
+        updated: "2026-08-27",
         noModal: true,
         blocks: [
+            { type: "text", content: "ando library", description: "What the Ando team is reading, writing, watching, and learning together.", link: "https://www.ando.so/library", added: "2026-08-27" },
             { type: "video", src: "media/things/ando-launch-preview.mp4", poster: "media/things/ando-launch-preview.webp", alt: "Ando interface preview", link: "https://x.com/andocorporation/status/2067334366494441957", added: "2026-06-20" },
+        ]
+    },
+    {
+        slug: "scents",
+        title: "scents",
+        updated: "2026-08-29",
+        noModal: true,
+        hideBlockDates: true,
+        hoverDescriptions: true,
+        blocks: [
+            { type: "text", content: "ummo (by xinú)", description: "tobacco / tonka, cedar, green-floral smoke" },
+            { type: "text", content: "mojave ghost (byredo)", description: "dry cedar-sandalwood with heat hazy violet" },
+            { type: "text", content: "bibliothéque (byredo)", description: "a little plum and vanilla" },
+            { type: "text", content: "café society (carlos benaïm)", description: "patchouli (mint family), amber" },
+            { type: "text", content: "dew on grass", description: "crisp" },
+            { type: "text", content: "pre-2010 PVG upon arrival", description: "that particular floral stale tobacco activates my nostalgia" },
         ]
     },
     {
@@ -149,9 +166,13 @@ const CHANNELS = [
     {
         slug: "life-in-sf",
         title: "life in sf",
-        updated: "2026-06-13",
+        updated: "2026-07-12",
+        gridPinned: true,
         noModal: true,
         blocks: [
+            { type: "image", src: "media/things/sf-img_9076.webp", alt: "pink-and-blue evening sky framed by high-rise buildings", added: "2026-07-12" },
+            { type: "image", src: "media/things/sf-img_9072.webp", alt: "grilled octopus, wine, and a book at a restaurant table", added: "2026-07-12" },
+            { type: "image", src: "media/things/sf-img_9361b781.webp", alt: "gallery reception with charcuterie and champagne", added: "2026-06-22" },
             { type: "image", src: "media/things/sf-img_8304.webp", alt: "wooden lodge in golden hills under a clear blue sky", added: "2026-06-13" },
             { type: "image", src: "media/things/sf-img_8273.webp", alt: "sunlight filtering through a redwood canopy", added: "2026-06-07" },
             { type: "video", src: "media/things/sf-img_8001.mov", alt: "video from sf", added: "2026-05-24" },
@@ -163,6 +184,7 @@ const CHANNELS = [
             { type: "image", src: "media/things/sf-img_7398.webp", alt: "brunch spread with flowers, green juice, and a salad plate", added: "2026-04-12" },
             { type: "image", src: "media/things/sf-img_7298.webp", alt: "kaiseki plate at a Japanese restaurant", added: "2026-04-05" },
             { type: "image", src: "media/things/sf-img_7061.webp", alt: "long dinner table set with orange flowers and wine glasses", added: "2026-03-18" },
+            { type: "image", src: "media/things/sf-img_6965.webp", alt: "chrome floor lamp against a wood slat wall", added: "2026-03-11" },
             { type: "image", src: "media/things/sf-img_6902.webp", alt: "rooftop sunset dinner with city views", added: "2026-03-06" },
             { type: "image", src: "media/things/sf-img_6754.webp", alt: "Transamerica Pyramid from a courtyard", added: "2026-02-27" },
             { type: "image", src: "media/things/sf-img_6742.webp", alt: "apartment room mid-renovation with a ladder", added: "2026-02-23" },
@@ -273,14 +295,23 @@ function renderGrid() {
             return (!latest || b.added > latest) ? b.added : latest;
         }, null) || ch.updated;
         return { ch, lastAdded };
-    }).sort((a, b) => new Date(b.lastAdded) - new Date(a.lastAdded));
+    }).sort((a, b) => {
+        if (a.ch.gridPinned !== b.ch.gridPinned) return a.ch.gridPinned ? -1 : 1;
+        return new Date(b.lastAdded) - new Date(a.lastAdded);
+    });
 
     $grid.innerHTML = channels.map(({ ch, lastAdded }) => `
         <a class="things-card" href="#${ch.slug}">
+            ${ch.gridPinned ? `
+                <svg class="things-card-pin" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 3h12l-2 7 3 3v4H5v-4l3-3-2-7Z"></path>
+                    <path d="M12 17v5"></path>
+                </svg>
+            ` : ''}
             <span class="things-card-title">${ch.title}</span>
             <div class="things-card-meta">
                 <span>${ch.blocks.length} block${ch.blocks.length !== 1 ? "s" : ""}</span>
-                <span>${timeAgo(lastAdded)}</span>
+                <span class="things-card-time">${timeAgo(lastAdded)}</span>
             </div>
         </a>
     `).join("");
@@ -310,7 +341,9 @@ function renderDetail(slug) {
         : sorted.map(({ block, i }) => {
             const noClick = (channel.noModal || block.noModal) && !channel.detailView;
             const noClickClass = noClick && !block.link ? ' things-block-static' : '';
-            const timeHTML = `<div class="things-block-time">${timeAgo(block.added || channel.updated)}</div>`;
+            const timeHTML = channel.hideBlockDates
+                ? ''
+                : `<div class="things-block-time">${timeAgo(block.added || channel.updated)}</div>`;
             if (block.type === "video") {
                 const subtitleHTML = block.subtitle ? `<div class="things-block-subtitle">${block.subtitle}</div>` : '';
                 const linkAttr = block.link ? ` data-link-url="${block.link}"` : '';
@@ -334,11 +367,21 @@ function renderDetail(slug) {
                     ${timeHTML}
                 </div>`;
             }
+            const isExternalLink = block.link?.startsWith("http");
             const linkClass = block.link ? ' things-block-link' : '';
+            const linkAttr = block.link
+                ? isExternalLink
+                    ? ` data-link-url="${block.link}"`
+                    : ` data-link="${block.link}"`
+                : '';
+            const swapsDescription = channel.hoverDescriptions && block.description;
+            const hoverClass = swapsDescription ? ' things-block-hover-swap' : '';
+            const labelClass = swapsDescription ? ' class="things-block-label"' : '';
+            const descriptionClass = swapsDescription ? ' things-block-hover-desc' : '';
             return `<div class="things-block-wrap">
-                <div class="things-block${linkClass}${noClickClass}" data-slug="${slug}" data-index="${i}"${block.link ? ` data-link="${block.link}"` : ''}>
-                    <p>${block.content}</p>
-                    ${block.description ? `<p class="things-block-desc">${block.description}</p>` : ''}
+                <div class="things-block${linkClass}${noClickClass}${hoverClass}" data-slug="${slug}" data-index="${i}"${linkAttr}>
+                    <p${labelClass}>${block.content}</p>
+                    ${block.description ? `<p class="things-block-desc${descriptionClass}">${block.description}</p>` : ''}
                     ${block.link ? '<span class="things-block-arrow">\u2192</span>' : ''}
                 </div>
                 ${timeHTML}
