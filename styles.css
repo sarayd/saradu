@@ -567,6 +567,7 @@ body {
     aspect-ratio: 1;
 }
 
+.things-block-caption,
 .things-block-subtitle {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 9px;

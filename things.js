@@ -9,9 +9,12 @@ const CHANNELS = [
     {
         slug: "ando",
         title: "ando",
-        updated: "2026-08-27",
+        updated: "2026-11-04",
         noModal: true,
         blocks: [
+            { type: "video", src: "media/things/ando-update.mp4", alt: "Ando video", added: "2026-11-04" },
+            { type: "image", src: "media/things/ando-delete-slack.png", alt: "iPhone showing a Delete Slack confirmation with Ando on the home screen", added: "2026-11-04" },
+            { type: "image", src: "media/things/ando-korean.jpeg", alt: "Ando preferences displayed in Korean", added: "2026-11-04" },
             { type: "text", content: "ando library", description: "What the Ando team is reading, writing, watching, and learning together.", link: "https://www.ando.so/library", added: "2026-08-27" },
             { type: "video", src: "media/things/ando-launch-preview.mp4", poster: "media/things/ando-launch-preview.webp", alt: "Ando interface preview", link: "https://x.com/andocorporation/status/2067334366494441957", added: "2026-06-20" },
         ]
@@ -19,17 +22,18 @@ const CHANNELS = [
     {
         slug: "scents",
         title: "scents",
-        updated: "2026-08-29",
+        updated: "2026-11-04",
         noModal: true,
         hideBlockDates: true,
-        hoverDescriptions: true,
         blocks: [
-            { type: "text", content: "ummo (by xinú)", description: "tobacco / tonka, cedar, green-floral smoke" },
-            { type: "text", content: "mojave ghost (byredo)", description: "dry cedar-sandalwood with heat hazy violet" },
-            { type: "text", content: "bibliothéque (byredo)", description: "a little plum and vanilla" },
-            { type: "text", content: "café society (carlos benaïm)", description: "patchouli (mint family), amber" },
-            { type: "text", content: "dew on grass", description: "crisp" },
-            { type: "text", content: "pre-2010 PVG upon arrival", description: "that particular floral stale tobacco activates my nostalgia" },
+            { type: "text", content: "osmanthus nectar by 馥郁满铺", added: "2026-11-04" },
+            { type: "image", src: "media/things/pomelo-documents.png", alt: "Pomelo by DOCUMENTS (闻献) perfume bottle with a wooden cap", caption: "Pomelo by DOCUMENTS (闻献)", description: "tart pomelo, bitter orange, bamboo & willow", added: "2026-11-04" },
+            { type: "image", src: "media/things/ummo-xinu.png", alt: "Ummo by Xinú perfume bottle and scent materials", caption: "ummo (by xinú)", description: "tobacco / tonka, cedar, green-floral smoke" },
+            { type: "text", content: "mojave ghost (byredo)" },
+            { type: "image", src: "media/things/bibliotheque-byredo.png", alt: "Bibliothèque by Byredo perfume bottle", caption: "bibliothèque (byredo)", description: "a little plum and vanilla" },
+            { type: "text", content: "café society (carlos benaïm)" },
+            { type: "text", content: "dew on grass" },
+            { type: "text", content: "tobacco" },
         ]
     },
     {
@@ -152,8 +156,10 @@ const CHANNELS = [
     {
         slug: "products",
         title: "products",
-        updated: "2025-04-24",
+        updated: "2026-11-04",
         blocks: [
+            { type: "text", content: "rohto cooling eyedrops", added: "2026-11-04" },
+            { type: "text", content: "ibgard", added: "2026-11-04" },
             { type: "text", content: "dyson", added: "2025-09-03" },
             { type: "text", content: "nosemint", added: "2026-03-21" },
             { type: "text", content: "neurogum", added: "2026-01-07" },
@@ -166,10 +172,11 @@ const CHANNELS = [
     {
         slug: "life-in-sf",
         title: "life in sf",
-        updated: "2026-07-12",
+        updated: "2026-11-04",
         gridPinned: true,
         noModal: true,
         blocks: [
+            { type: "image", src: "media/things/sf-img_0791.jpg", alt: "plates of pasta on a softly lit restaurant table", added: "2026-11-04" },
             { type: "image", src: "media/things/sf-img_9076.webp", alt: "pink-and-blue evening sky framed by high-rise buildings", added: "2026-07-12" },
             { type: "image", src: "media/things/sf-img_9072.webp", alt: "grilled octopus, wine, and a book at a restaurant table", added: "2026-07-12" },
             { type: "image", src: "media/things/sf-img_9361b781.webp", alt: "gallery reception with charcuterie and champagne", added: "2026-06-22" },
@@ -359,11 +366,13 @@ function renderDetail(slug) {
             }
             if (block.type === "image") {
                 const subtitleHTML = block.subtitle ? `<div class="things-block-subtitle">${block.subtitle}</div>` : '';
+                const captionHTML = block.caption ? `<div class="things-block-caption">${block.caption}${block.description ? `<br>${block.description}` : ''}</div>` : '';
                 return `<div class="things-block-wrap">
                     <div class="things-block things-block-image${noClickClass}" data-slug="${slug}" data-index="${i}">
                         <img src="${block.src}" alt="${block.alt || ''}" loading="lazy">
                     </div>
                     ${subtitleHTML}
+                    ${captionHTML}
                     ${timeHTML}
                 </div>`;
             }
